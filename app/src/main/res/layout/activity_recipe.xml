@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="Ten mon an"
+        android:id="@+id/ten_mon_an"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"></TextView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:fillViewport="true"
+        android:padding="16dp">
+        <TextView
+            android:scrollbars="vertical"
+            android:textSize="25sp"
+            android:text="Nguyen lieu"
+            android:textColor="#090909"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/nguyen_lieu"/>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:fillViewport="true"
+        android:padding="16dp">
+        <TextView
+            android:scrollbars="vertical"
+            android:textSize="25sp"
+            android:text="Cong thuc"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/cong_thuc"/>
+    </ScrollView>
+
+
+
+</LinearLayout>

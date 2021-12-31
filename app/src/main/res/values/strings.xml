@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Bếp nhà mình</string>
+    <string name="bottom_home">Home</string>
+    <string name="bottom_favorite">Favorite</string>
+    <string name="bottom_search">Search</string>
+    <string name="bottom_me">Me</string>
+    <string name="action_search">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
