@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -68,5 +69,12 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (FirebaseAuth.getInstance().getUid() == null) {
+            startActivity(new Intent(MainActivity.this, Login.class));
+            finish();
+        }
+    }
 }
