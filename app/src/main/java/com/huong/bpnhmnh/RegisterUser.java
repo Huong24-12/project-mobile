@@ -87,6 +87,7 @@ public class RegisterUser extends BaseActivity {
                     map.put("email", email);
                     map.put("name", name);
 
+
                     String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
                     FirebaseFirestore.getInstance()

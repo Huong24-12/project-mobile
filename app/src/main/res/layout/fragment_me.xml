@@ -12,6 +12,7 @@
 
 
     <ImageView
+
         android:id="@+id/profileImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -59,7 +60,7 @@
             android:textColor="#CEB9FE" />
 
         <EditText
-            android:id="@+id/profilePhone"
+            android:id="@+id/profileAge"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Your Age"

@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.huong.bpnhmnh.fragment.Dish;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +19,11 @@ import java.util.List;
 public class NewAdapter extends RecyclerView.Adapter<NewAdapter.VH> {
     private Context context;
     private List<Dish> list = new ArrayList<>();
+    private ItemClick itemClick;
+
+    public void onClickItem(ItemClick itemClick) {
+        this.itemClick = itemClick;
+    }
 
     public NewAdapter(Context context) {
         this.context = context;
@@ -42,6 +46,12 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.VH> {
         Glide.with(context)
                 .load(dish.getImage())
                 .into(holder.image);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemClick.onClick(holder.getAdapterPosition(),dish);
+            }
+        });
     }
 
     @Override
@@ -71,8 +81,8 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.VH> {
         public VH(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
-            image =  itemView.findViewById(R.id.image);
-            author =  itemView.findViewById(R.id.author);
+            image = itemView.findViewById(R.id.image);
+            author = itemView.findViewById(R.id.author);
         }
     }
 }

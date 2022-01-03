@@ -1,5 +1,6 @@
 package com.huong.bpnhmnh.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,9 +24,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.huong.bpnhmnh.Dish;
 import com.huong.bpnhmnh.NewAdapter;
 import com.huong.bpnhmnh.PaginationRecyclerview;
 import com.huong.bpnhmnh.R;
+import com.huong.bpnhmnh.ShowDishInforActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -163,15 +166,23 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        adapter.onClickItem((position, dish) -> {
+            Intent intent = new Intent(requireActivity(), ShowDishInforActivity.class);
+            intent.putExtra("dish",dish);
+            requireActivity().startActivity(intent);
+        });
+
+
 
     }
 
     private String uid;
 
     private void LoadDish(boolean isLoadMore) {
+
         Query first;
         first = db.collection("data")
-                .orderBy("time", Query.Direction.ASCENDING);
+                .orderBy("time", Query.Direction.DESCENDING);
         if (isLoadMore && lastVisible != null) {
             first = first.startAfter(lastVisible);
         }

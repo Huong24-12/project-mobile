@@ -1,4 +1,4 @@
-package com.huong.bpnhmnh.fragment;
+package com.huong.bpnhmnh;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -10,6 +10,7 @@ public class Dish implements Parcelable {
     private String recipe;
     private String introduce;
     private String author;
+
 
     public Dish() {
     }

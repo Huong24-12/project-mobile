@@ -6,47 +6,48 @@
     android:orientation="vertical"
     tools:context=".ShowDishInforActivity">
 
-    <Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Bánh Mỳ"
         android:textAlignment="center"
         android:textColor="@color/red"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/introduce"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Nó là cái bánh mỳ thôi mà có cái gì đâu "
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="normal" />
     <ImageView
+        android:id="@+id/image"
         android:scaleType="center"
-        android:src="@drawable/nen_dki"
         android:layout_width="match_parent"
         android:layout_height="200dp"/>
     <TextView
+        android:id="@+id/recipe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Chỗ này là của công thức \nĐúng rồi này hihi"
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="normal" />
     <TextView
+        android:id="@+id/author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Tác giả: Thu Hương"
+
         android:textColor="@color/purple_500"
         android:textSize="14sp"
         android:textStyle="normal" />
