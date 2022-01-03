@@ -4,6 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"/>
 
     <TextView
         android:textSize="30sp"
@@ -41,7 +44,6 @@
             android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
             android:id="@+id/cong_thuc"/>
     </ScrollView>
 

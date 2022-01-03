@@ -1,15 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
+    android:gravity="center"
+    android:orientation="vertical"
     android:background="#071D5E">
 
+
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/avt_profile"/>
     <TextView
+        android:id="@+id/change_profile_btn"
+        android:layout_below="@+id/profileImage"
+        android:text="Change avatar"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="Me Fragment"
-        android:textSize="20sp"/>
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            android:textAllCaps="true"
+            android:textColor="#CEB9FE" />
+
+        <EditText
+            android:id="@+id/profileName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Your Name"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Age"
+            android:textAllCaps="true"
+            android:textColor="#CEB9FE" />
+
+        <EditText
+            android:id="@+id/profilePhone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Your Age"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Email"
+            android:textAllCaps="true"
+            android:textColor="#CEB9FE" />
+
+        <EditText
+            android:id="@+id/profileEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Your Email Address"
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#0ED689"
+        android:text="SAVE"
+        android:textColor="#ffffff"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#0ED689"
+        android:text="LOGOUT"
+        android:textColor="#ffffff"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+
 
 </LinearLayout>

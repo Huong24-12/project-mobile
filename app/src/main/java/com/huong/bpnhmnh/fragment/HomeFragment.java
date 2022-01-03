@@ -1,14 +1,21 @@
 package com.huong.bpnhmnh.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -19,6 +26,7 @@ import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
+import com.huong.bpnhmnh.MainActivity;
 import com.huong.bpnhmnh.R;
 
 import java.util.ArrayList;
@@ -30,11 +38,11 @@ public class HomeFragment extends Fragment {
     Toolbar toolbar;
     ViewFlipper viewFlipper;
     NavigationView navigationView;
-    ListView listView,listViewNew,listViewThongTin;
+    ListView listView, listViewNew, listViewThongTin;
     DrawerLayout drawerLayout;
-    private View mView;
 
-    public HomeFragment(){
+
+    public HomeFragment() {
 
     }
 
@@ -43,21 +51,39 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        // Inflate the layout for this fragment
-        mView = inflater.inflate(R.layout.fragment_home2, container, false);
+        View mView = inflater.inflate(R.layout.fragment_home2, container, false);
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        Anhxa(mView);
+        ActionBar(activity);
         return mView;
 
 
     }
 
-
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        Anhxa();
         ActionViewFlipper();
+
     }
+
+    private void ActionBar(AppCompatActivity activity){
+        //sét nút cho actionbar
+        activity.setSupportActionBar(toolbar);
+        //tạo icon cho toolbar
+        toolbar.setNavigationIcon(android.R.drawable.ic_menu_search);
+        //bắt sự kiện click
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+
+        });
+
+    }
+
 
     // phương thức cho chạy quảng cáo với ViewFilipper
     private void ActionViewFlipper() {
@@ -72,7 +98,7 @@ public class HomeFragment extends Fragment {
         mangquangcao.add(R.drawable.quang_cao_5);
 
         //thực hiện vòng lặp for gán ảnh vào ImageView, rồi từ imgview lên app
-        for(int i = 0; i < mangquangcao.size(); i++){
+        for (int i = 0; i < mangquangcao.size(); i++) {
             ImageView imageView = new ImageView(getActivity().getApplicationContext());
             //dùng hàm thư viện Glide
             Glide.with(requireActivity())
@@ -95,19 +121,20 @@ public class HomeFragment extends Fragment {
         Animation animation_slide_out = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.slide_out_right);
 
         //gọi Animation vào viewFlipper
+        //san sale
         viewFlipper.setInAnimation(animation_slide_in);
         viewFlipper.setInAnimation(animation_slide_out);
     }
 
 
-    private void Anhxa(){
-        toolbar = mView.findViewById(R.id.toolbarfragmenthome);
-        viewFlipper = mView.findViewById(R.id.viewflipper);
-        listViewNew = mView.findViewById(R.id.listviewNew);
-        listView = mView.findViewById(R.id.listviewfragmenthome);
-        listViewThongTin = mView.findViewById(R.id.listviewthongtin);
-        navigationView = mView.findViewById(R.id.navigationView);
-        drawerLayout = mView.findViewById(R.id.drawerlayout);
+    private void Anhxa(View view) {
+        toolbar = view.findViewById(R.id.toolbarfragmenthome);
+        viewFlipper = view.findViewById(R.id.viewflipper);
+        listViewNew = view.findViewById(R.id.listviewNew);
+        listView = view.findViewById(R.id.listviewfragmenthome);
+        listViewThongTin = view.findViewById(R.id.listviewthongtin);
+        navigationView = view.findViewById(R.id.navigationView);
+        drawerLayout = view.findViewById(R.id.drawerlayout);
     }
 
 
