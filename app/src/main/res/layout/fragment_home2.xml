@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="20dp"
-    android:background="@color/teal_200">
+    android:background="@color/white"
+    android:padding="10dp">
 
     <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerlayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/drawerlayout">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarfragmenthome"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="Food List"
-                android:id="@+id/toolbarfragmenthome">
+                app:title="Food List">
 
             </androidx.appcompat.widget.Toolbar>
 
             <ViewFlipper
-                android:background="#ffff"
                 android:id="@+id/viewflipper"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"></ViewFlipper>
+                android:layout_height="150dp"
+                android:background="#ffff"></ViewFlipper>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="#ffff">
+                android:background="#ffff"
+                android:orientation="vertical">
 
                 <TextView
-                    android:textColor="#AA0F0F"
-                    android:textStyle="bold"
-                    android:textSize="25sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="Mới nhất"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:textColor="#AA0F0F"
+                    android:textSize="25sp"
+                    android:textStyle="bold">
 
                 </TextView>
 
@@ -55,20 +55,21 @@
         </LinearLayout>
 
         <com.google.android.material.navigation.NavigationView
-            android:layout_gravity = "start"
             android:id="@+id/navigationView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_gravity="start">
 
             <ListView
                 android:id="@+id/listviewthongtin"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"></ListView>
+
             <ListView
                 android:id="@+id/listviewfragmenthome"
-                android:layout_marginTop="150dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150dp"></ListView>
         </com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
 

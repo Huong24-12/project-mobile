@@ -15,7 +15,7 @@
         android:id="@+id/profileImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/avt_profile"/>
+        android:src="@drawable/nen_dki"/>
     <TextView
         android:id="@+id/change_profile_btn"
         android:layout_below="@+id/profileImage"

@@ -52,7 +52,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View mView = inflater.inflate(R.layout.fragment_home2, container, false);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        AppCompatActivity activity = (AppCompatActivity) requireActivity();
         Anhxa(mView);
         ActionBar(activity);
         return mView;
