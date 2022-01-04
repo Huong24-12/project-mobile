@@ -3,7 +3,11 @@ package com.huong.bpnhmnh;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.firebase.database.Exclude;
+
 public class Dish implements Parcelable {
+    @Exclude
+    private String docId;
     private String name;
     private String image;
     private long time;
@@ -31,6 +35,7 @@ public class Dish implements Parcelable {
         recipe = in.readString();
         introduce = in.readString();
         author = in.readString();
+        docId = in.readString();
     }
 
     public static final Creator<Dish> CREATOR = new Creator<Dish>() {
@@ -44,6 +49,14 @@ public class Dish implements Parcelable {
             return new Dish[size];
         }
     };
+
+    public String getDocId() {
+        return docId;
+    }
+
+    public void setDocId(String docId) {
+        this.docId = docId;
+    }
 
     public String getName() {
         return name;
@@ -106,5 +119,6 @@ public class Dish implements Parcelable {
         parcel.writeString(recipe);
         parcel.writeString(introduce);
         parcel.writeString(author);
+        parcel.writeString(docId);
     }
 }

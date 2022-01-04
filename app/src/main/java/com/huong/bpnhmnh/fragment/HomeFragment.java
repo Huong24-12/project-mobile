@@ -41,12 +41,12 @@ public class HomeFragment extends Fragment {
     private boolean isLastItemReached;
     private boolean isLoading;
     private ProgressBar progress_circular;
-    ViewFlipper viewFlipper;
+
     RecyclerView recyclerView;
 
     NewAdapter adapter;
 
-
+    ViewFlipper viewFlipper;
     public HomeFragment() {
 
     }
@@ -72,7 +72,6 @@ public class HomeFragment extends Fragment {
         LoadDish(false);
 
     }
-
 
 
     // phương thức cho chạy quảng cáo với ViewFilipper
@@ -168,10 +167,9 @@ public class HomeFragment extends Fragment {
 
         adapter.onClickItem((position, dish) -> {
             Intent intent = new Intent(requireActivity(), ShowDishInforActivity.class);
-            intent.putExtra("dish",dish);
+            intent.putExtra("dish", dish);
             requireActivity().startActivity(intent);
         });
-
 
 
     }
@@ -201,6 +199,7 @@ public class HomeFragment extends Fragment {
                     if (model == null) {
                         continue;
                     }
+                    model.setDocId(documentSnapshot.getId());
                     list.add(model);
                 }
                 if (!isLoadMore) {
