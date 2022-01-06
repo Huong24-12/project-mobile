@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ViewFlipper;
@@ -30,6 +31,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.huong.bpnhmnh.R;
 import com.huong.bpnhmnh.activity.CreateActivity;
+import com.huong.bpnhmnh.activity.SearchActivity;
 import com.huong.bpnhmnh.activity.ShowDishInforActivity;
 import com.huong.bpnhmnh.adapter.NewAdapter;
 import com.huong.bpnhmnh.model.Dish;
@@ -47,7 +49,7 @@ public class HomeFragment extends Fragment {
     private boolean isLoading;
     private ProgressBar progress_circular;
     private FloatingActionButton add;
-
+    private ImageButton search;
     RecyclerView recyclerView;
 
     NewAdapter adapter;
@@ -64,7 +66,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View mView = inflater.inflate(R.layout.fragment_home2, container, false);
-        AppCompatActivity activity = (AppCompatActivity) requireActivity();
         Anhxa(mView);
         return mView;
 
@@ -83,6 +84,12 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(requireActivity(), CreateActivity.class);
                 mStartForResult.launch(intent);
+            }
+        });
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(requireActivity(), SearchActivity.class));
             }
         });
 
@@ -136,6 +143,7 @@ public class HomeFragment extends Fragment {
         progress_circular = view.findViewById(R.id.progress_circular);
         recyclerView = view.findViewById(R.id.recyclerView);
         add = view.findViewById(R.id.add);
+        search = view.findViewById(R.id.search);
 
     }
 
@@ -243,7 +251,7 @@ public class HomeFragment extends Fragment {
                 if (result.getResultCode() == Activity.RESULT_OK) {
                     Intent intent = result.getData();
                     if (intent != null) {
-                        if (intent.getStringExtra("add").equals("add")){
+                        if (intent.getStringExtra("add").equals("add")) {
                             LoadDish(false);
                         }
                     }

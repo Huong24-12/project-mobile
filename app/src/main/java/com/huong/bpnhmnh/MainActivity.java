@@ -1,6 +1,10 @@
 package com.huong.bpnhmnh;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -13,6 +17,9 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.huong.bpnhmnh.activity.Login;
 import com.huong.bpnhmnh.adapter.MyViewPagerAdapter;
+import com.huong.bpnhmnh.receiver.ReminderReceiver;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,13 +30,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        setAlarm();
         mViewPager2 = findViewById(R.id.view_pager_2);
         mBottomNavigationView = findViewById(R.id.bottom_navigation);
 
         MyViewPagerAdapter myViewPagerAdapter = new MyViewPagerAdapter(this);
         mViewPager2.setAdapter(myViewPagerAdapter);
-
 
         mBottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -69,6 +75,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    private void setAlarm() {
+        cancelAlarm();
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, ReminderReceiver.class);
+        int flag = 0;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flag = PendingIntent.FLAG_IMMUTABLE;
+        }
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 111, intent, flag);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 19);
+        calendar.set(Calendar.MINUTE, 30);
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);
+
+    }
+
+    private void cancelAlarm() {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, ReminderReceiver.class);
+        int flag = 0;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flag = PendingIntent.FLAG_IMMUTABLE;
+
+        }
+        PendingIntent pendingIntent = PendingIntent.getService(this, 111, intent, flag);
+        alarmManager.cancel(pendingIntent);
+    }
+
 
     @Override
     protected void onStart() {

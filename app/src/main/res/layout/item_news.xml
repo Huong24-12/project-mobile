@@ -106,7 +106,7 @@
             android:textSize="16sp"
             app:readMoreColor="@color/red"
             app:readMoreMaxLine="4"
-            app:readMoreText="@string/read_more" />
+            app:readMoreText="xem thêm" />
 
 
     </LinearLayout>
