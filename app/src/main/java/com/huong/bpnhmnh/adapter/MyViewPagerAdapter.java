@@ -1,4 +1,4 @@
-package com.huong.bpnhmnh;
+package com.huong.bpnhmnh.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

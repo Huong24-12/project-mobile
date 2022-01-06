@@ -24,12 +24,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.huong.bpnhmnh.Dish;
-import com.huong.bpnhmnh.ItemClick;
-import com.huong.bpnhmnh.LikeAdapter;
-import com.huong.bpnhmnh.PaginationRecyclerview;
+import com.huong.bpnhmnh.model.Dish;
+import com.huong.bpnhmnh.utils.ItemClick;
+import com.huong.bpnhmnh.adapter.LikeAdapter;
+import com.huong.bpnhmnh.utils.PaginationRecyclerview;
 import com.huong.bpnhmnh.R;
-import com.huong.bpnhmnh.ShowDishInforActivity;
+import com.huong.bpnhmnh.activity.ShowDishInforActivity;
 
 import java.util.ArrayList;
 import java.util.List;

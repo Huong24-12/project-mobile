@@ -1,5 +1,6 @@
 package com.huong.bpnhmnh.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ViewFlipper;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,15 +23,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.huong.bpnhmnh.Dish;
-import com.huong.bpnhmnh.NewAdapter;
-import com.huong.bpnhmnh.PaginationRecyclerview;
 import com.huong.bpnhmnh.R;
-import com.huong.bpnhmnh.ShowDishInforActivity;
+import com.huong.bpnhmnh.activity.CreateActivity;
+import com.huong.bpnhmnh.activity.ShowDishInforActivity;
+import com.huong.bpnhmnh.adapter.NewAdapter;
+import com.huong.bpnhmnh.model.Dish;
+import com.huong.bpnhmnh.utils.PaginationRecyclerview;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,12 +46,14 @@ public class HomeFragment extends Fragment {
     private boolean isLastItemReached;
     private boolean isLoading;
     private ProgressBar progress_circular;
+    private FloatingActionButton add;
 
     RecyclerView recyclerView;
 
     NewAdapter adapter;
 
     ViewFlipper viewFlipper;
+
     public HomeFragment() {
 
     }
@@ -70,6 +77,14 @@ public class HomeFragment extends Fragment {
         ActionViewFlipper();
         initList();
         LoadDish(false);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(requireActivity(), CreateActivity.class);
+                mStartForResult.launch(intent);
+            }
+        });
 
     }
 
@@ -120,6 +135,7 @@ public class HomeFragment extends Fragment {
         viewFlipper = view.findViewById(R.id.viewflipper);
         progress_circular = view.findViewById(R.id.progress_circular);
         recyclerView = view.findViewById(R.id.recyclerView);
+        add = view.findViewById(R.id.add);
 
     }
 
@@ -221,5 +237,18 @@ public class HomeFragment extends Fragment {
 
         });
     }
+
+    ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent intent = result.getData();
+                    if (intent != null) {
+                        if (intent.getStringExtra("add").equals("add")){
+                            LoadDish(false);
+                        }
+                    }
+                }
+            });
+
 
 }

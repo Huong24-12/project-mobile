@@ -1,4 +1,4 @@
-package com.huong.bpnhmnh;
+package com.huong.bpnhmnh.activity;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -20,6 +20,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+import com.huong.bpnhmnh.BaseActivity;
+import com.huong.bpnhmnh.MainActivity;
+import com.huong.bpnhmnh.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +40,6 @@ public class RegisterUser extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
         mAuth = FirebaseAuth.getInstance();
-
 
         emailedit = findViewById(R.id.email);
         passedit = findViewById(R.id.password);

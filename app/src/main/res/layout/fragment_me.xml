@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
 
     android:orientation="vertical"
     android:background="@color/white">
@@ -20,25 +21,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
-
                 android:id="@+id/profileImage"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/nen_dki"/>
-            <TextView
-                android:id="@+id/change_profile_btn"
-                android:layout_below="@+id/profileImage"
-                android:text="Change avatar"
-                android:layout_centerHorizontal="true"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginTop="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
+                android:src="@mipmap/logo"/>
 
             <LinearLayout
-                android:layout_marginTop="20dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -100,18 +89,18 @@
                 android:backgroundTint="#0ED689"
                 android:text="SAVE"
                 android:textColor="#ffffff"
-                android:textSize="26sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+
                 android:backgroundTint="#0ED689"
                 android:text="LOGOUT"
                 android:textColor="#ffffff"
-                android:textSize="26sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>

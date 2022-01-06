@@ -8,4 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF1100</color>
+    <color name="colorDark1">#000000</color>
+    <color name="colorDark2">#121212</color>
+    <color name="colorTextTitleDark">#F1F1F1</color>
+    <color name="colorTextTitle">@color/colorDark1</color>
+    <color name="colorBackground">@color/white</color>
+    <color name="colorBackgroundDark">@color/colorDark2</color>
+    <color name="black_icon">#838383</color>
+    <color name="gray">#A4B1B1B1</color>
 </resources>

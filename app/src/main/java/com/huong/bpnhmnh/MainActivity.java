@@ -1,23 +1,24 @@
 package com.huong.bpnhmnh;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.huong.bpnhmnh.activity.Login;
+import com.huong.bpnhmnh.adapter.MyViewPagerAdapter;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     private ViewPager2 mViewPager2;
     private BottomNavigationView mBottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +35,13 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                if(id == R.id.bottom_home){
+                if (id == R.id.bottom_home) {
                     mViewPager2.setCurrentItem(0);
-                }else if (id == R.id.bottom_search){
+                } else if (id == R.id.bottom_search) {
                     mViewPager2.setCurrentItem(1);
-                }else if(id == R.id.bottom_favorite){
+                } else if (id == R.id.bottom_favorite) {
                     mViewPager2.setCurrentItem(2);
-                }else if(id == R.id.bottom_me){
+                } else if (id == R.id.bottom_me) {
                     mViewPager2.setCurrentItem(3);
                 }
                 return true;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                switch (position){
+                switch (position) {
                     case 0:
                         mBottomNavigationView.getMenu().findItem(R.id.bottom_home).setChecked(true);
                         break;

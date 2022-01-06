@@ -1,4 +1,4 @@
-package com.huong.bpnhmnh;
+package com.huong.bpnhmnh.activity;
 
 import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
@@ -24,6 +24,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+import com.huong.bpnhmnh.BaseActivity;
+import com.huong.bpnhmnh.R;
+import com.huong.bpnhmnh.model.Dish;
 
 import java.util.Objects;
 

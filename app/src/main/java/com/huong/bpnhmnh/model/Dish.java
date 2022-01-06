@@ -1,4 +1,4 @@
-package com.huong.bpnhmnh;
+package com.huong.bpnhmnh.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

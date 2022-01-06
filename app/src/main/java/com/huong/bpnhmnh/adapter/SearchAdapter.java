@@ -1,4 +1,4 @@
-package com.huong.bpnhmnh;
+package com.huong.bpnhmnh.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.huong.bpnhmnh.R;
+import com.huong.bpnhmnh.model.Search;
 
 import java.util.List;
 

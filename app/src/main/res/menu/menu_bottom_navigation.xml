@@ -6,9 +6,8 @@
         android:icon="@drawable/ic_home"/>
 
     <item android:id="@+id/bottom_search"
-        android:title="@string/bottom_search"
-        android:icon="@drawable/ic_search"/>
-
+        android:title="News"
+        android:icon="@drawable/ic_news"/>
     <item android:id="@+id/bottom_favorite"
         android:title="@string/bottom_favorite"
         android:icon="@drawable/ic_favorite"/>

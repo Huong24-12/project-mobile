@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ShowDishInforActivity">
+    tools:context=".activity.ShowDishInforActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolBar"
