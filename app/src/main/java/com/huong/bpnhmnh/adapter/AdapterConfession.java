@@ -123,7 +123,7 @@ public class AdapterConfession extends RecyclerView.Adapter<RecyclerView.ViewHol
             DateFormat f = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT, Locale.getDefault());
             Date date = new Date();
             date.setTime(confession.getApprovedTime());
-
+            txtTime.setText(f.format(date));
 
         }
     }
